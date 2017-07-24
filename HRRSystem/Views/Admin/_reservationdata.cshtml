@@ -1,0 +1,60 @@
+﻿@model IEnumerable<HRRSystem.Models.Reservation>
+
+<html>
+<head>
+    <title>The Paradise-Hotel Website Template | Reservation :: w3layouts</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
+    <link href="~/Content/style.css" rel="stylesheet" type="text/css" media="all" />
+    <script src="~/Scripts/jquery.min.js"></script>
+    <!---strat-date-piker---->
+    <link rel="stylesheet" href="~/Content/jquery-ui.css" />
+    <script src="~/Scripts/jquery-ui.js"></script>
+    <script>
+        $(function () {
+            $("#datepicker,#datepicker1").datepicker();
+        });
+    </script>
+    <!---/End-date-piker---->
+    <link type="text/css" rel="stylesheet" href="~/Content/JFGrid.css" />
+    <link type="text/css" rel="stylesheet" href="~/Content/JFFormStyle-1.css" />
+    <script type="text/javascript" src="~/Scripts/JFCore.js"></script>
+    <script type="text/javascript" src="~/Scripts/JFForms.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery-1.8.3.min.js"></script>
+
+</head>
+<body>
+<div class="container">
+
+    <div class="table-responsive">
+
+        <br>
+        <table class="table">
+            <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Check-in</th>
+                <th>Rooms</th>
+                <th>Nic</th>
+                <th>Adults</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.name</td>
+                    <td>@item.check_in</td>
+                    <td>@item.rooms</td>
+                    <td>@item.nic</td>
+                    <td>@item.adults</td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>
+
+    </body>
+    </html>

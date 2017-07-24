@@ -1,0 +1,193 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HRRSModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\AKHTAR\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\HRRSYSTEM\HRRSYSTEM\APP_DATA\HRRS.MDF.dbo.Admin' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="username" Type="varchar" MaxLength="50" />
+          <Property Name="password" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\AKHTAR\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\HRRSYSTEM\HRRSYSTEM\APP_DATA\HRRS.MDF.dbo.Contact' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mobile" Type="varchar" MaxLength="20" />
+          <Property Name="consubject" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\AKHTAR\DOCUMENTS\VISUAL STUDIO 2013\PROJECTS\HRRSYSTEM\HRRSYSTEM\APP_DATA\HRRS.MDF.dbo.Reservation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="check_in" />
+            <PropertyRef Name="check_out" />
+            <PropertyRef Name="rooms" />
+            <PropertyRef Name="nic" />
+            <PropertyRef Name="adults" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="check_in" Type="date" Nullable="false" />
+          <Property Name="check_out" Type="date" Nullable="false" />
+          <Property Name="rooms" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="nic" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="adults" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HRRSModelStoreContainer">
+          <EntitySet Name="Admin" EntityType="Self.Admin" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Admin].[Id] AS [Id], 
+    [Admin].[name] AS [name], 
+    [Admin].[username] AS [username], 
+    [Admin].[password] AS [password]
+    FROM [dbo].[Admin] AS [Admin]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Contact" EntityType="Self.Contact" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Contact].[Id] AS [Id], 
+    [Contact].[name] AS [name], 
+    [Contact].[email] AS [email], 
+    [Contact].[mobile] AS [mobile], 
+    [Contact].[consubject] AS [consubject]
+    FROM [dbo].[Contact] AS [Contact]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Reservation" EntityType="Self.Reservation" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Reservation].[Id] AS [Id], 
+    [Reservation].[name] AS [name], 
+    [Reservation].[check_in] AS [check_in], 
+    [Reservation].[check_out] AS [check_out], 
+    [Reservation].[rooms] AS [rooms], 
+    [Reservation].[nic] AS [nic], 
+    [Reservation].[adults] AS [adults]
+    FROM [dbo].[Reservation] AS [Reservation]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HRRSModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Admin">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="consubject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Reservation">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="name" />
+            <PropertyRef Name="check_in" />
+            <PropertyRef Name="check_out" />
+            <PropertyRef Name="rooms" />
+            <PropertyRef Name="nic" />
+            <PropertyRef Name="adults" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="check_in" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="check_out" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="rooms" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="nic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="adults" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="HRRSEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Admins" EntityType="Self.Admin" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <EntitySet Name="Reservations" EntityType="Self.Reservation" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HRRSModelStoreContainer" CdmEntityContainer="HRRSEntities">
+          <EntitySetMapping Name="Admins">
+            <EntityTypeMapping TypeName="HRRSModel.Admin">
+              <MappingFragment StoreEntitySet="Admin">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="HRRSModel.Contact">
+              <MappingFragment StoreEntitySet="Contact">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="consubject" ColumnName="consubject" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Reservations">
+            <EntityTypeMapping TypeName="HRRSModel.Reservation">
+              <MappingFragment StoreEntitySet="Reservation">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="check_in" ColumnName="check_in" />
+                <ScalarProperty Name="check_out" ColumnName="check_out" />
+                <ScalarProperty Name="rooms" ColumnName="rooms" />
+                <ScalarProperty Name="nic" ColumnName="nic" />
+                <ScalarProperty Name="adults" ColumnName="adults" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

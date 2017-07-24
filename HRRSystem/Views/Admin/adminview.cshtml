@@ -1,0 +1,21 @@
+﻿@model IEnumerable<HRRSystem.Models.Admin>
+
+<h2>Admin</h2>
+<>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>UserName</th>
+        <th>Pawssword</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.name</td>
+            <td>@item.username</td>
+            <td>@item.password</td>
+        </tr>
+    }
+</table>
